@@ -1,0 +1,20 @@
+services:
+  vllm:
+    image: nvcr.io/nvidia/tritonserver:24.09-vllm-python-py3
+    volumes:
+      - "./model_repository:/opt/model_repository"
+      - "./model_download:/opt/model_download"
+    entrypoint:
+      - tritonserver
+      - --model-repository=/opt/model_repository
+    ports:
+      - "8000:8000"
+      - "8001:8001"
+      - "8002:8002"
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]

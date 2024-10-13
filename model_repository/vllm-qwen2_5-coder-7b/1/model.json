@@ -1,0 +1,7 @@
+{
+    "model": "Qwen/Qwen2.5-Coder-7B",
+    "disable_log_requests": true,
+    "gpu_memory_utilization": 0.5,
+    "enforce_eager": true,
+    "download_dir": "/opt/model_download"
+}
